@@ -6,7 +6,7 @@ module.exports = function(app) {
     app.use(
       '/api',
       createProxyMiddleware({
-        target: 'http://localhost:5000',
+        target: 'http://localhost:5000'||'https://formalyze-client.vercel.app',
         changeOrigin: true,
         timeout: 30000,
         proxyTimeout: 31000,
