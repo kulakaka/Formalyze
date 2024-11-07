@@ -10,15 +10,14 @@ const corsOptions = {
     origin: ['https://formalyze-client.vercel.app', 'http://localhost:3000'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-    optionsSuccessStatus: 200
+    credentials: false
 };
 
 app.use(cors(corsOptions));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
-// Handle preflight requests
+// Pre-flight requests
 app.options('*', cors(corsOptions));
 
 app.use('/api', groqRoutes);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../../config/axios';
 import './CreateForm.css';
 import QuestionsList from './QuestionsList'; 
 
@@ -15,14 +15,7 @@ const CreateForm = () => {
     setQuestions([]);
 
     try {
-      const res = await axios.post('https://formalyze-server.vercel.app/api/generate-questions', 
-        { message },
-        {
-          headers: { 
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      const res = await api.post('/generate-questions', { message });
       console.log(res);
       setQuestions(res.data.message.questions || []);
     } catch (err) {
@@ -33,14 +26,7 @@ const CreateForm = () => {
     }
 
     try {
-      const res = await axios.post('https://formalyze-server.vercel.app/api/generate-questions-title', 
-        { message },
-        {
-          headers: { 
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      const res = await api.post('/generate-questions-title', { message });
       console.log(res);
       setTitle(res.data.title);
     } catch (err) {
