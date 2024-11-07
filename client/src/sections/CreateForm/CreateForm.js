@@ -15,12 +15,11 @@ const CreateForm = () => {
     setQuestions([]);
 
     try {
-      const res = await axios.post('https://formalyze-server.vercel.app/api/generate-questions', 
+      const res = await axios.post('/api/generate-questions', 
         { message },
         {
-          headers: { 
-            'Content-Type': 'application/json',
-          },
+          headers: { 'content-type': 'application/x-www-form-urlencoded' },
+
         }
       );
       console.log(res);
@@ -33,12 +32,11 @@ const CreateForm = () => {
     }
 
     try {
-      const res = await axios.post('https://formalyze-server.vercel.app/api/generate-questions-title', 
+      const res = await axios.post('/api/generate-questions-title', 
         { message },
         {
-          headers: { 
-            'Content-Type': 'application/json',
-          },
+          headers: { 'content-type': 'application/x-www-form-urlencoded' },
+
         }
       );
       console.log(res);
