@@ -6,6 +6,12 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY
 });
 
+
+
+// https://formalyze-client.vercel.app
+// https://formalyze-client-kulakakas-projects.vercel.app/
+// https://formalyze-client-git-main-kulakakas-projects.vercel.app/
+
 router.post('/generate-questions', async (req, res) => {
   const { message } = req.body;
 
