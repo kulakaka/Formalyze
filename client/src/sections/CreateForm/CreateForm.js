@@ -18,9 +18,8 @@ const CreateForm = () => {
       const res = await axios.post('/api/generate-questions', 
         { message },
         {
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8',
-          }
+          headers: { 'content-type': 'application/x-www-form-urlencoded' },
+
         }
       );
       console.log(res);
@@ -36,9 +35,8 @@ const CreateForm = () => {
       const res = await axios.post('/api/generate-questions-title', 
         { message },
         {
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8',
-          }
+          headers: { 'content-type': 'application/x-www-form-urlencoded' },
+
         }
       );
       console.log(res);
